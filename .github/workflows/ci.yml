@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create .env file
+        run: |
+          cat <<EOF > .env
+          POSTGRES_DB=appdb
+          POSTGRES_USER=appuser
+          POSTGRES_PASSWORD=supersecurepassword
+          DB_HOST=db
+          DB_PORT=5432
+          EOF
+
+      - name: Build containers
+        run: docker compose build
+
+      - name: Start services
+        run: docker compose up -d
+
+      - name: Wait for services
+        run: sleep 20
+
+      - name: Check health endpoint
+        run: curl -f http://localhost:5000/health
+
+      - name: Show logs on failure
+        if: failure()
+        run: docker compose logs
+
+      - name: Shut down services
+        if: always()
+        run: docker compose down -v
