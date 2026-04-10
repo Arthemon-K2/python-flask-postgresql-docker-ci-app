@@ -41,16 +41,16 @@ Client → Nginx → Gunicorn → Flask App → PostgreSQL
 
 ## 📁 Project Structure
 
-```
 .
-├── app/                # Flask application
+├── app/                # Flask application + requirements
 ├── nginx/              # Nginx configuration
 ├── .github/workflows/  # CI pipeline
-├── docker-compose.yml
+├── .dockerignore
+├── .env.example
+├── .gitignore
 ├── Dockerfile
-├── requirements.txt
-└── .env
-```
+├── docker-compose.yml
+└── README.md
 
 ---
 
@@ -152,6 +152,7 @@ This project follows production-oriented practices:
 
 Zoltán Zsinka
 Full Stack Developer / DevOps-oriented Engineer
+LinkedIn: https://www.linkedin.com/in/zoltanzsinka/
 
 ---
 
