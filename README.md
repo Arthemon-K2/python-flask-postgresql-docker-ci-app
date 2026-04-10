@@ -1,14 +1,10 @@
-# 🚀 Flask + PostgreSQL + Docker + CI/CD Demo App
----
+# 🚀 Production-Style Flask Backend with Docker & CI
 
-## 🎯 Purpose
+A containerized backend system demonstrating how to move from simple Flask applications to production-ready architectures using Docker, Nginx, and CI pipelines.
 
-This project was built to demonstrate how to design and run a production-like backend system using containerized services, reverse proxy, and CI validation.
-
-It focuses on bridging the gap between simple Flask applications and real-world deployable systems.
+It simulates a real-world deployment scenario with reverse proxy, WSGI server, and database integration.
 
 ---
-
 ## 🧱 Tech Stack
 
 * Python (Flask)
